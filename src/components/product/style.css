@@ -1,4 +1,4 @@
-.bartender-container{
+.product-container{
     display: flex;
     flex-direction: column;
     gap: .6rem;
@@ -12,7 +12,7 @@
     }
 }
 
-.bartender-star-price{
+.product-star-price{
     display: flex;
     width: 100%;
     justify-content: space-between;

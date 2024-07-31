@@ -1,14 +1,15 @@
-main{
-    display: flex;
-    align-items: center;
-    height: 100vh;
-}
-
 #home{
-    display: flex;    
+    display: flex;
     flex-direction: column-reverse;
     gap: 2rem;
     align-items: center;
+    min-height: 100vh;
+
+    a{
+        background-color: #c4c4c4;
+        border-radius: 20px;
+        padding: .6rem;
+    }
 }
 
 .home-content{
@@ -29,10 +30,4 @@ main{
     width: 100%;
 }
 
-#home {
-    a{
-        background-color: #c4c4c4;
-        border-radius: 20px;
-        padding: .6rem;
-    }
-}
+

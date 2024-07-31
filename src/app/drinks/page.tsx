@@ -1,13 +1,14 @@
 import Header from "@/components/header";
-import Bartender from "@/components/bartender";
+import Product from "@/components/product";
+import './style.css'
 
-export default function Home() {
+export default function DrinksPage() {
   return (
     <>
       <Header />
       <main>
         <section id="area-results">
-          <Bartender name="Test"/>
+          <Product name="Test" price={15} />
         </section>
       </main>
     </>
