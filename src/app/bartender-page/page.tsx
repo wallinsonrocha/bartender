@@ -1,36 +1,19 @@
 "use client";
-
+import './style.css';
 import Header from "@/components/header";
 import Bartender from "@/components/bartender";
-import './style.css'
+import BartenderDetail from "@/components/bartender-detail";
 import { useState } from "react";
-
-interface BartenderPerson {
-  id: number;
-  name: string;
-  stars: number;
-  valorH: number;
-  shortDesc: string;
-  // description: string;
-}
-
-const bartenderList: Array<BartenderPerson> = [
-  { id: 1, name: 'Carla', stars: 5, valorH: 150, shortDesc: "Dolor sit amet consectetur. Massa in nisi amet sem suspendisse. Tincidunt eget interdum et dui at duis." },
-  { id: 2, name: 'Daniel', stars: 4, valorH: 150, shortDesc: "Dolor sit amet consectetur. Massa in nisi amet sem suspendisse. Tincidunt eget interdum et dui at duis." },
-  { id: 3, name: 'Érick', stars: 4, valorH: 150, shortDesc: "Dolor sit amet consectetur. Massa in nisi amet sem suspendisse. Tincidunt eget interdum et dui at duis." },
-  { id: 4, name: 'Fernanda', stars: 4, valorH: 150, shortDesc: "Dolor sit amet consectetur. Massa in nisi amet sem suspendisse. Tincidunt eget interdum et dui at duis." },
-  { id: 5, name: 'Gabriel', stars: 4, valorH: 150, shortDesc: "Dolor sit amet consectetur. Massa in nisi amet sem suspendisse. Tincidunt eget interdum et dui at duis." },
-  { id: 6, name: 'Helena', stars: 4, valorH: 150, shortDesc: "Dolor sit amet consectetur. Massa in nisi amet sem suspendisse. Tincidunt eget interdum et dui at duis." }
-]
+import { BartenderPerson, bartenderList } from '../../../public/data/bartenders';
 
 export default function BartenderPage() {
   const [selectedBartender, setSelectedBartender] = useState<BartenderPerson | null>(null);
   // Função utilizada para pegar os dados e colocar em Bartender Screen de acordo com o Id
-  const handleButtonClick = (id:number) => {
+  const handleButtonClick = (id: number) => {
     const bartender = bartenderList.find(b => b.id === id);
     setSelectedBartender(bartender || null);
   };
-
+  // Para limpar o useState e fechar a tela de dados.
   const handleClose = () => {
     setSelectedBartender(null);
   };
@@ -44,18 +27,29 @@ export default function BartenderPage() {
             bartenderList.map(b => {
               return (
                 <Bartender id={b.id}
+                  key={b.id}
                   name={b.name}
                   stars={b.stars}
                   valorH={b.valorH}
                   shortDesc={b.shortDesc}
                   onButtonClick={handleButtonClick}
-                   />
+                />
               )
             })
           }
         </section>
-        {/* Screen Bartender details - Continuar aqui para construir a tela de informações */}
-
+        {/* Screen Bartender details */}
+        {selectedBartender && (
+          <BartenderDetail
+            name={selectedBartender.name}
+            valorH={selectedBartender.valorH}
+            stars={selectedBartender.stars}
+            shortDesc={selectedBartender.shortDesc}
+            onClose={handleClose}
+            objective={selectedBartender.objective}
+            challenges={selectedBartender.challenges} 
+            description={selectedBartender.description}/>
+        )}
       </main>
     </>
   );
