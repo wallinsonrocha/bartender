@@ -1,0 +1,93 @@
+#drink-product-screen{
+    position: fixed;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    inset: 0;
+    background-color: rgba(0, 0, 0, .4);
+    backdrop-filter: blur(4px);
+}
+
+#drink-product-detail{    
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    background-color: #f5f5f5;
+    width: 90%;   
+
+    button{
+        align-self: flex-end;
+        margin-bottom: 2rem;
+    }
+
+    img{
+        width: 100%;
+    }
+
+    .drink-product-detail__container{
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        .drink-product-detail__content{
+            display: flex;        
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .drink-product-container{
+            max-width: fit-content;
+
+            button{
+                max-width: none;
+                width: 100%;
+            }
+        }
+    }    
+
+    .drink-product__qnt{
+        display: flex;
+
+        .qnt__button{
+            display: flex;          
+            align-items: center;
+            justify-content: space-between;
+            padding: .6rem;        
+            width: 100px;
+            height: 2.4rem;
+            border-radius: 20px;
+            background-color: #c4c4c4;     
+
+            button{
+                background-color: transparent;                
+                width: auto;        
+                margin: 0;
+                padding: 0;
+            }
+        }
+    }
+
+    a{
+        width: 100%;
+        padding: .5rem;
+        border-radius: 20px;
+        text-align: center;
+        background-color: #c4c4c4;
+    }
+}
+
+.drinkActive {
+    animation: fadeIn 0.5s forwards;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }

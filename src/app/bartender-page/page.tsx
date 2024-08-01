@@ -41,14 +41,15 @@ export default function BartenderPage() {
         {/* Screen Bartender details */}
         {selectedBartender && (
           <BartenderDetail
+            id={selectedBartender.id}
             name={selectedBartender.name}
             valorH={selectedBartender.valorH}
             stars={selectedBartender.stars}
             shortDesc={selectedBartender.shortDesc}
             onClose={handleClose}
             objective={selectedBartender.objective}
-            challenges={selectedBartender.challenges} 
-            description={selectedBartender.description}/>
+            challenges={selectedBartender.challenges}
+            description={selectedBartender.description} />
         )}
       </main>
     </>

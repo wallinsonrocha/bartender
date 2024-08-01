@@ -2,6 +2,7 @@ import Star from '../star';
 import './style.css';
 
 type BartenderDetailProps = {
+  id: number;
   name: string;
   valorH: number;
   stars: number;
@@ -17,7 +18,7 @@ export default function BartenderDetail(props: BartenderDetailProps) {
   const stars = Array.from({ length: props.stars });
 
   return (
-    <div id="bartender-screen">
+    <div key={props.id} id="bartender-screen">
       <div id="bartender-detail" className='bartenderActive'>
         <button onClick={props.onClose}>Cancel</button>
         <div className='bartender-detail__container'>
